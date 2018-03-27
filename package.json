@@ -4,6 +4,7 @@
   "description": "tool collection",
   "main": "index.js",
   "author": "yonglinhuang",
+  "github": "https://github.com/leetlin/fast-tool",
   "license": "MIT",
   "private": false,
   "bin": {
