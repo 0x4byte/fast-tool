@@ -73,6 +73,10 @@ cycle@1.0.x:
   version "1.0.3"
   resolved "http://registry.npm.taobao.org/cycle/download/cycle-1.0.3.tgz#21e80b2be8580f98b468f379430662b046c34ad2"
 
+dateformat-util@^1.0.5:
+  version "1.0.5"
+  resolved "https://registry.npmjs.org/dateformat-util/-/dateformat-util-1.0.5.tgz#2e6f67ea212e715aef58921b6723aad997f54512"
+
 deep-equal@~0.2.1:
   version "0.2.2"
   resolved "http://registry.npm.taobao.org/deep-equal/download/deep-equal-0.2.2.tgz#84b745896f34c684e98f2ce0e42abaf43bba017d"

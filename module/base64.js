@@ -36,6 +36,19 @@ const printDecodeURI = value => {
   `)
 }
 
+const getCallback = cmd => {
+  if (cmd.url && !cmd.encode && !cmd.decode) {
+    log(chalk.red('please match -e or -d args use.'))
+    return
+  }
+
+  if (cmd.decode && cmd.url) return printDecodeURI
+  if (cmd.decode) return printDecode
+  if (cmd.encode && cmd.url) return printEncodeURI
+
+  return printEncode
+}
+
 program
   .command('base64')
   .description('quick base64')
@@ -44,17 +57,12 @@ program
   .option('-d, --decode', 'decode string')
   .option('-r, --url', 'encode/decode url')
   .action((value, cmd) => {
-    if (!cmd) {
-      return prompt.enter(printEncode)
+    if (typeof value === 'object') {
+      const cb = getCallback(value)
+
+      cb && prompt.enter(cb)
+      return
     }
 
-    if (cmd.url && !cmd.encode && !cmd.decode) {
-      return log(chalk.red('please match -e or -d args use.'))
-    }
-
-    if (cmd.decode && cmd.url) return printDecodeURI(value)
-    if (cmd.decode) return printDecode(value)
-    if (cmd.encode && cmd.url) return printEncodeURI(value)
-
-    printEncode(value)
+    getCallback(cmd)(value)
   })
