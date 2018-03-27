@@ -1,0 +1,19 @@
+{
+  "name": "fast-tool",
+  "version": "0.0.1",
+  "description": "tool collection",
+  "main": "index.js",
+  "author": "yonglinhuang",
+  "license": "MIT",
+  "private": false,
+  "bin": {
+    "ftool": "./index.js"
+  },
+  "dependencies": {
+    "chalk": "^2.3.2",
+    "commander": "^2.15.1",
+    "js-base64": "^2.4.3",
+    "md5": "^2.2.1",
+    "prompt": "^1.0.0"
+  }
+}
