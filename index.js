@@ -1,3 +1,5 @@
+#!/usr/bin/env
+
 const program = require('commander')
 
 require('./module/md5')

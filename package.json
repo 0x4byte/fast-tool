@@ -3,8 +3,8 @@
   "version": "0.0.1",
   "description": "tool collection",
   "main": "index.js",
-  "author": "yonglinhuang",
-  "github": "https://github.com/leetlin/fast-tool",
+  "author": "ylwit",
+  "repository": "https://github.com/leetlin/fast-tool",
   "license": "MIT",
   "private": false,
   "bin": {
