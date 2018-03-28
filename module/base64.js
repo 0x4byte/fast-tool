@@ -51,7 +51,7 @@ const getCallback = cmd => {
 
 program
   .command('base64')
-  .description('quick base64')
+  .description('base64 string')
   .alias('b')
   .option('-e, --encode', 'encode string')
   .option('-d, --decode', 'decode string')

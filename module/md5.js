@@ -14,7 +14,7 @@ const printMd5 = value => {
 
 program
   .command('md5')
-  .description('quick md5')
+  .description('md5 string')
   .alias('m')
   .action(value => {
     if (!value || typeof value === 'object') {
