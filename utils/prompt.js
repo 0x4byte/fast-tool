@@ -1,7 +1,8 @@
 const prompt = require('prompt')
 
+prompt.start()
+
 const enterStr = callback => {
-  prompt.start()
   prompt.get(
     {
       properties: {
@@ -11,13 +12,12 @@ const enterStr = callback => {
       }
     },
     (err, res) => {
-      callback(res.value)
+      res && callback(res.value)
     }
   )
 }
 
 const enterInt = callback => {
-  prompt.start()
   prompt.get(
     [
       {
@@ -28,7 +28,7 @@ const enterInt = callback => {
       }
     ],
     (err, res) => {
-      callback(res.value)
+      res && callback(res.value)
     }
   )
 }
