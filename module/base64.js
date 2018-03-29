@@ -1,6 +1,9 @@
 const program = require('commander')
 const Base64 = require('js-base64').Base64
 const chalk = require('chalk')
+const mimeType = require('mime-types')
+const path = require('path')
+const fs = require('fs')
 const log = console.log
 const prompt = require('../utils/prompt')
 
@@ -36,7 +39,28 @@ const printDecodeURI = value => {
   `)
 }
 
+const printFile = filePath => {
+  const _filePath = path.resolve(filePath)
+  let data
+
+  try {
+    data = fs.readFileSync(_filePath)
+  } catch (e) {
+    return log(chalk.red(e))
+  }
+
+  data = new Buffer(data).toString('base64')
+  const base64 = `data:${mimeType.lookup(filePath)};base64,${data}`
+
+  log(chalk`
+  Input:  {green ${_filePath}}
+  Base64: {green ${base64}}
+  `)
+}
+
 const getCallback = cmd => {
+  if (cmd.file) return printFile
+
   if (cmd.url && !cmd.encode && !cmd.decode) {
     log(chalk.red('please match -e or -d args use.'))
     return
@@ -56,6 +80,7 @@ program
   .option('-e, --encode', 'encode string')
   .option('-d, --decode', 'decode string')
   .option('-r, --url', 'encode/decode url')
+  .option('-f, --file', 'covert file to base64 string')
   .action((value, cmd) => {
     if (typeof value === 'object') {
       const cb = getCallback(value)

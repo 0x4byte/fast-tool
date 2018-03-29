@@ -22,4 +22,4 @@ output:
 #### Support
 - md5
 - time format convert
-- base64
+- base64 (include: string、file)
