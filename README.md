@@ -23,3 +23,4 @@ output:
 - md5
 - time format convert
 - base64 (include: string、file)
+- qrcode

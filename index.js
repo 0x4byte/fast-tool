@@ -5,6 +5,7 @@ const pkg = require('./package.json')
 require('./module/md5')
 require('./module/base64')
 require('./module/time')
+require('./module/qrcode')
 
 program.title = 'ftool'
 
