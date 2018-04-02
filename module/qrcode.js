@@ -5,13 +5,16 @@ const prompt = require('../utils/prompt')
 const log = console.log
 
 const printStrToImg = value => {
-  QRCode.toString(value, { type: 'terminal' })
+  QRCode.toDataURL(value)
     .then(url => {
       log(chalk`
-      Input: {green ${value}}
-      Output:
+      Input:  {green ${value}}
+      Output: {green ${url}}
       `)
-      log(url)
+      return QRCode.toString(value, { type: 'terminal' })
+    })
+    .then(img => {
+      log(img)
     })
     .catch(err => {
       log(chalk.red(err))
